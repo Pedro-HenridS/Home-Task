@@ -122,3 +122,4 @@ C:\Users\sphrb\OneDrive\Desktop\Projects\HomeTask\backend\hometask.api\obj\Debug
 C:\Users\sphrb\OneDrive\Desktop\Projects\HomeTask\backend\hometask.api\obj\Debug\net8.0\hometask.api.pdb
 C:\Users\sphrb\OneDrive\Desktop\Projects\HomeTask\backend\hometask.api\obj\Debug\net8.0\hometask.api.genruntimeconfig.cache
 C:\Users\sphrb\OneDrive\Desktop\Projects\HomeTask\backend\hometask.api\obj\Debug\net8.0\ref\hometask.api.dll
+C:\Users\sphrb\OneDrive\Desktop\Projects\HomeTask\backend\hometask.api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

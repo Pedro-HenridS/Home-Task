@@ -25,11 +25,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.4" />
 </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\application\application.csproj" />
     <ProjectReference Include="..\communication\communication.csproj" />
