@@ -1,3 +1,4 @@
+using hometask.api.Filters;
 using infra;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRouting(op => op.LowercaseUrls = true);
+
+builder.Services.AddMvc(op => op.Filters.Add(typeof(ExceptionFilters)));
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
