@@ -1,4 +1,5 @@
 .vs/
+<<<<<<< HEAD
 .env
 <<<<<<< HEAD
 **/bin/
@@ -7,3 +8,6 @@
 **/obj/
 **/bin/
 >>>>>>> feature/exception
+=======
+.env
+>>>>>>> 8d6718d (feature:tratamento de erros e criação de filtro)
