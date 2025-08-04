@@ -1,62 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {
-      "communication/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "compile": {
-          "bin/placeholder/communication.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/communication.dll": {}
-        }
-      },
-      "domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "compile": {
-          "bin/placeholder/domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/domain.dll": {}
-        }
-      },
-      "Exception/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "compile": {
-          "bin/placeholder/Exception.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Exception.dll": {}
-        }
-      }
-    }
+    "net9.0": {}
   },
-  "libraries": {
-    "communication/1.0.0": {
-      "type": "project",
-      "path": "../communication/communication.csproj",
-      "msbuildProject": "../communication/communication.csproj"
-    },
-    "domain/1.0.0": {
-      "type": "project",
-      "path": "../domain/domain.csproj",
-      "msbuildProject": "../domain/domain.csproj"
-    },
-    "Exception/1.0.0": {
-      "type": "project",
-      "path": "../Exception/Exception.csproj",
-      "msbuildProject": "../Exception/Exception.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net9.0": [
-      "Exception >= 1.0.0",
-      "communication >= 1.0.0",
-      "domain >= 1.0.0"
-    ]
+    "net9.0": []
   },
   "packageFolders": {
     "C:\\Users\\sphrb\\.nuget\\packages\\": {},
@@ -89,17 +38,7 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {
-            "C:\\Users\\sphrb\\OneDrive\\Desktop\\Projects\\HomeTask\\backend\\communication\\communication.csproj": {
-              "projectPath": "C:\\Users\\sphrb\\OneDrive\\Desktop\\Projects\\HomeTask\\backend\\communication\\communication.csproj"
-            },
-            "C:\\Users\\sphrb\\OneDrive\\Desktop\\Projects\\HomeTask\\backend\\domain\\domain.csproj": {
-              "projectPath": "C:\\Users\\sphrb\\OneDrive\\Desktop\\Projects\\HomeTask\\backend\\domain\\domain.csproj"
-            },
-            "C:\\Users\\sphrb\\OneDrive\\Desktop\\Projects\\HomeTask\\backend\\Exception\\Exception.csproj": {
-              "projectPath": "C:\\Users\\sphrb\\OneDrive\\Desktop\\Projects\\HomeTask\\backend\\Exception\\Exception.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
