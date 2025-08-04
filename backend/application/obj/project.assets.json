@@ -1,10 +1,10 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {
+    "net8.0": {
       "communication/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
+        "framework": ".NETCoreApp,Version=v8.0",
         "compile": {
           "bin/placeholder/communication.dll": {}
         },
@@ -14,7 +14,7 @@
       },
       "domain/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
+        "framework": ".NETCoreApp,Version=v8.0",
         "compile": {
           "bin/placeholder/domain.dll": {}
         },
@@ -24,7 +24,7 @@
       },
       "Exception/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
+        "framework": ".NETCoreApp,Version=v8.0",
         "compile": {
           "bin/placeholder/Exception.dll": {}
         },
@@ -52,7 +52,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net9.0": [
+    "net8.0": [
       "Exception >= 1.0.0",
       "communication >= 1.0.0",
       "domain >= 1.0.0"
@@ -80,15 +80,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net9.0"
+        "net8.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "projectReferences": {
             "C:\\Users\\sphrb\\OneDrive\\Desktop\\Projects\\HomeTask\\backend\\communication\\communication.csproj": {
               "projectPath": "C:\\Users\\sphrb\\OneDrive\\Desktop\\Projects\\HomeTask\\backend\\communication\\communication.csproj"
@@ -115,8 +115,8 @@
       "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
-      "net9.0": {
-        "targetAlias": "net9.0",
+      "net8.0": {
+        "targetAlias": "net8.0",
         "imports": [
           "net461",
           "net462",
