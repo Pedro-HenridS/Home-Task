@@ -17,6 +17,8 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddUserSecrets<Program>(optional: true);
+
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
