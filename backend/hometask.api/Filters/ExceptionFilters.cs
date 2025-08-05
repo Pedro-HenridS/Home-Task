@@ -1,4 +1,5 @@
 ﻿using communication.Responses.Exception;
+using Exception;
 using Exception.Account;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -9,7 +10,14 @@ namespace hometask.api.Filters
     {
         public void OnException(ExceptionContext context) 
         {
-        
+            if(context.Exception is ApiException)
+            {
+                HandleException(context);
+            }
+            else
+            {
+                HandleException(context);
+            }
         }
 
         private void HandleException(ExceptionContext context)
