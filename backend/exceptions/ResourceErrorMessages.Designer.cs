@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Exception {
+namespace exceptions {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Exception {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Exception.ResourceErrorMessages", typeof(ResourceErrorMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("exceptions.ResourceErrorMessages", typeof(ResourceErrorMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,65 @@ namespace Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The amount must be greater than zero.
+        ///   Looks up a localized string similar to The email is already in use.
         /// </summary>
-        public static string AMOUNT_MUST_BE_GREATER_THAN_ZERO {
+        public static string EMAIL_ALREADY_IN_USE {
             get {
-                return ResourceManager.GetString("AMOUNT_MUST_BE_GREATER_THAN_ZERO", resourceCulture);
+                return ResourceManager.GetString("EMAIL_ALREADY_IN_USE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The title is required.
+        ///   Looks up a localized string similar to The email is required.
         /// </summary>
-        public static string EMPTY_TITLE {
+        public static string EMPTY_EMAIL {
             get {
-                return ResourceManager.GetString("EMPTY_TITLE", resourceCulture);
+                return ResourceManager.GetString("EMPTY_EMAIL", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expense cannot be for the future..
+        ///   Looks up a localized string similar to The password is required.
         /// </summary>
-        public static string FOR_FUTURE {
+        public static string EMPTY_PASSWORD {
             get {
-                return ResourceManager.GetString("FOR_FUTURE", resourceCulture);
+                return ResourceManager.GetString("EMPTY_PASSWORD", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payment Type is not valid.
+        ///   Looks up a localized string similar to The username is required.
         /// </summary>
-        public static string PAYMENT_TYPE_INVALID {
+        public static string EMPTY_USERNAME {
             get {
-                return ResourceManager.GetString("PAYMENT_TYPE_INVALID", resourceCulture);
+                return ResourceManager.GetString("EMPTY_USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The field has less than 8 digits.
+        /// </summary>
+        public static string LESS_THAN_8_CHAR {
+            get {
+                return ResourceManager.GetString("LESS_THAN_8_CHAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Email.
+        /// </summary>
+        public static string NOT_A_EMAIL {
+            get {
+                return ResourceManager.GetString("NOT_A_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The passwords don&apos;t match.
+        /// </summary>
+        public static string NOT_EQUAL_PASSWORD {
+            get {
+                return ResourceManager.GetString("NOT_EQUAL_PASSWORD", resourceCulture);
             }
         }
         
@@ -102,6 +129,42 @@ namespace Exception {
         public static string UNKNOW_ERROR {
             get {
                 return ResourceManager.GetString("UNKNOW_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A capitalized letter is required.
+        /// </summary>
+        public static string WITHOUT_CAPITALIZED_LETTER {
+            get {
+                return ResourceManager.GetString("WITHOUT_CAPITALIZED_LETTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A lowercase letter is required.
+        /// </summary>
+        public static string WITHOUT_LOWERCASE_LETTER {
+            get {
+                return ResourceManager.GetString("WITHOUT_LOWERCASE_LETTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A simbol is required.
+        /// </summary>
+        public static string WITHOUT_NUMBER {
+            get {
+                return ResourceManager.GetString("WITHOUT_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A number is required.
+        /// </summary>
+        public static string WITHOUT_SIMBOL {
+            get {
+                return ResourceManager.GetString("WITHOUT_SIMBOL", resourceCulture);
             }
         }
     }
