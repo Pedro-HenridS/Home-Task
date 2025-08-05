@@ -1,4 +1,9 @@
 .vs/
 .env
+<<<<<<< HEAD
 **/bin/
 **/obj/
+=======
+**/obj/
+**/bin/
+>>>>>>> feature/exception
