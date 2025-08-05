@@ -12,4 +12,8 @@
     <ProjectReference Include="..\Exception\Exception.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UseCases\" />
+  </ItemGroup>
+
 </Project>
