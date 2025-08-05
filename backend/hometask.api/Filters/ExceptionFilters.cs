@@ -34,7 +34,7 @@ namespace hometask.api.Filters
         private void UnknowException(ExceptionContext context)
         {
             context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
-            context.Result = new ObjectResult("");
+            context.Result = new ObjectResult(ResourceErrorMessages.UNKNOW_ERROR);
         }
     }
 }
