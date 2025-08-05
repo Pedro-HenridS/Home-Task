@@ -1,6 +1,5 @@
 ﻿using application.Services.Account;
 using application.Services.Encrypt;
-using application.Services.Validation;
 using application.Validators;
 using communication.Requests.DTO.UsersDTO;
 using domain.Entities;
@@ -13,7 +12,6 @@ namespace application.UseCases
     public class RegisterUseCase
     {
         private RegisterUserValidator _userValidator;
-        private ValidatorService _validatorService;
         private EmailAlreadyInUseService _emailAlreadyInUseService;
         private PasswordHasherService _passwordHasherService;
         private RegisterUserService _registerUserService;
@@ -21,14 +19,12 @@ namespace application.UseCases
         public RegisterUseCase
         (
             RegisterUserValidator userValidator,
-            ValidatorService validatorService,
             EmailAlreadyInUseService emailAlreadyInUseService,
             PasswordHasherService passwordHasherService,
             RegisterUserService registerUserService
         )
         {
             _userValidator = userValidator;
-            _validatorService = validatorService;
             _emailAlreadyInUseService = emailAlreadyInUseService;
             _passwordHasherService = passwordHasherService;
             _registerUserService = registerUserService;
@@ -68,7 +64,7 @@ namespace application.UseCases
             // Salva o usuário ao banco
             await _registerUserService.Execute(user);
 
-            _registerUserService.Execute(user);
+            await _registerUserService.Execute(user);
 
         }
     }
