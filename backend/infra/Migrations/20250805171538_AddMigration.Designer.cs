@@ -12,15 +12,15 @@ using infra;
 namespace infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250804192557_Criando o banco de dados")]
-    partial class Criandoobancodedados
+    [Migration("20250805171538_AddMigration")]
+    partial class AddMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.13")
+                .HasAnnotation("ProductVersion", "8.0.18")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -142,10 +142,6 @@ namespace infra.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 

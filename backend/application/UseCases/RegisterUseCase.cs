@@ -3,6 +3,7 @@ using application.Services.Encrypt;
 using application.Services.Validation;
 using application.Validators;
 using communication.Requests.DTO.UsersDTO;
+using domain.Entities;
 using Exception.Account;
 using FluentValidation.Results;
 
@@ -10,27 +11,26 @@ namespace application.UseCases
 {
     public class RegisterUseCase
     {
-
-        //converter a senha em hash
-        //registrar o usuário
-
         private RegisterUserValidator _userValidator;
         private ValidatorService _validatorService;
         private EmailAlreadyInUseService _emailAlreadyInUseService;
         private PasswordHasherService _passwordHasherService;
+        private RegisterUserService _registerUserService;
 
         public RegisterUseCase
         (
             RegisterUserValidator userValidator,
             ValidatorService validatorService,
-            EmailAlreadyInUseService EmailAlreadyInUseService,
-            PasswordHasherService PasswordHasherService
+            EmailAlreadyInUseService emailAlreadyInUseService,
+            PasswordHasherService passwordHasherService,
+            RegisterUserService registerUserService
         )
         {
             _userValidator = userValidator;
             _validatorService = validatorService;
-            _emailAlreadyInUseService = EmailAlreadyInUseService;
-            _passwordHasherService = PasswordHasherService;
+            _emailAlreadyInUseService = emailAlreadyInUseService;
+            _passwordHasherService = passwordHasherService;
+            _registerUserService = registerUserService;
         }
 
         public void RegisterUser(RegisterDtoRequest request)
@@ -40,7 +40,18 @@ namespace application.UseCases
             _validatorService.Execute<RegisterException>(validationResult);
             _emailAlreadyInUseService.Execute(request.Email);
 
-            string passworsd = _passwordHasherService.Execute(request.Password);
+            string HashPassworsd = _passwordHasherService.Execute(request.Password);
+
+            User user = new User { 
+                
+                Id = Guid.NewGuid(),
+                Username = request.UserName,
+                Email = request.Email,
+                Password = HashPassworsd
+            };
+
+            
+            _registerUserService.Execute(user);
 
         }
     }
