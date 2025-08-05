@@ -39,14 +39,5 @@ namespace hometask.api.Controllers
 
             return Ok(token);
         }
-
-        [HttpPost]
-        [Route("register")]
-        public IActionResult Register([FromBody] RegisterDtoRequest request)
-        {
-            _registerUseCase.RegisterUser(request);
-
-            return Created();
-        }  
     }
 }
