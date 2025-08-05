@@ -40,3 +40,5 @@ docker-compose.override.yml
 *.dbmdl
 *.bak
 *.swp
+
+appsettings.Development

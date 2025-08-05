@@ -5,13 +5,13 @@ namespace infra.Services.Users
 {
     public class UserRegisterRepository : IUserRegisterRepository
     {
-        private AppDbContext _context;
+        private AppDbContext _context { get; set; }
 
         public UserRegisterRepository(AppDbContext context)
         {
             _context = context;
         }
-        public async System.Threading.Tasks.Task CreateUser(User user) {
+        public async System.Threading.Tasks.Task CreateUserAsync(User user) {
             
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync(true);

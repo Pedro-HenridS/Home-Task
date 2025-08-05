@@ -1,5 +1,8 @@
-﻿using communication.Requests.DTO.UsersDTO;
+﻿
+using communication.Requests.DTO.UsersDTO;
 using domain.Interfaces.UsersInterfaces;
+using Exception;
+using Exception.Account;
 
 namespace application.Services.Account
 {
@@ -7,14 +10,26 @@ namespace application.Services.Account
     {
         private IUserRepository _userRepository;
 
-        public FindAccountService(IUserRepository userRepository)
+
+        public FindAccountService(
+            IUserRepository userRepository
+            )
         {
             _userRepository = userRepository;
+
         }
 
-        public void Execute(LoginDtoRequest request)
+        public LoginJwtRequest Execute(string email)
+
         {
-            _userRepository.FindUserByEmail(request.Email);
+            var user = _userRepository.FindUserByEmail(email);
+
+
+            return new LoginJwtRequest
+            {
+                Id = user.Result.Id,
+                HashPassword = user.Result.Password
+            };
         }
     }
 }
