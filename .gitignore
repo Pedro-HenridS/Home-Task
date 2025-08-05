@@ -3,4 +3,5 @@
 .env
 **/obj/
 **/bin/
-appsettings.Development.json
+appsettings.json
+appsettings.Secret.json
