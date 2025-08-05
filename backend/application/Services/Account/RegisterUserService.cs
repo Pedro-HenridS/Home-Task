@@ -16,14 +16,9 @@ namespace application.Services.Account
 
         public void Execute(User user)
         {
-            try{
-                _userRegisterRepository.CreateUser(user);
-            }
-            catch(Exception e)
-            {
-
-            }
             
+              _userRegisterRepository.CreateUser(user);
+          
         }
     }
 }

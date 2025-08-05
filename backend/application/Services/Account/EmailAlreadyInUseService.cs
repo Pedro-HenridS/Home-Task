@@ -18,7 +18,7 @@ namespace application.Services.Account
         {
             User user = await _userRepository.FindUserByEmail(email);
 
-            if (user == null)
+            if (user != null)
             {
                 throw new RegisterException(ResourceErrorMessages.EMAIL_ALREADY_IN_USE);
             }

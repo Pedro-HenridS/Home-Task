@@ -1,4 +1,5 @@
 using application.Services.Account;
+using application.Services.Encrypt;
 using application.Services.Validation;
 using application.UseCases;
 using application.Validators;
@@ -28,6 +29,8 @@ builder.Services.AddScoped<RegisterUserValidator>();
 // services
 builder.Services.AddScoped<ValidatorService>();
 builder.Services.AddScoped<EmailAlreadyInUseService>();
+builder.Services.AddScoped<RegisterUserService>();
+builder.Services.AddScoped<PasswordHasherService>();
 
 // Injeção de Dependência
 builder.Services.AddScoped<IUserRepository, UserRepository>();
