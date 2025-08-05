@@ -1,6 +1,5 @@
 ﻿using application.UseCases;
 using communication.Requests.DTO.UsersDTO;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace hometask.api.Controllers
@@ -10,17 +9,35 @@ namespace hometask.api.Controllers
     public class AccountController : ControllerBase
     {
         public RegisterUseCase _registerUseCase;
+        public LoginUseCase _loginUseCase;
 
-        public AccountController(RegisterUseCase registerUseCase) 
+        public AccountController(
+            RegisterUseCase registerUseCase,
+            LoginUseCase loginUseCase
+            ) 
         {
             _registerUseCase = registerUseCase;
+            _loginUseCase = loginUseCase;
+        }
+
+        
+
+        [HttpPost]
+        [Route("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterDtoRequest request)
+        {
+            await _registerUseCase.RegisterUser(request);
+
+            return Created();
         }
 
         [HttpPost]
         [Route("login")]
-        public IActionResult Login(string teste)
+        public async Task<IActionResult> Login(LoginDtoRequest request)
         {
-            return Ok("teste");
+            string token = await _loginUseCase.Login(request);
+
+            return Ok(token);
         }
 
         [HttpPost]

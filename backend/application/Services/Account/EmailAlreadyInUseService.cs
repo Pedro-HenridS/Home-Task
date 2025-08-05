@@ -14,14 +14,16 @@ namespace application.Services.Account
             _userRepository = userRepository;
         }
 
-        public async void Execute(string email)
+        public async Task<bool> Execute(string email)
         {
             User user = await _userRepository.FindUserByEmail(email);
 
             if (user != null)
             {
-                throw new RegisterException(ResourceErrorMessages.EMAIL_ALREADY_IN_USE);
+                return true;
             }
+
+            return false;
 
         }
     }

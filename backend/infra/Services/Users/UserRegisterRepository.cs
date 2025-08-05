@@ -11,7 +11,7 @@ namespace infra.Services.Users
         {
             _context = context;
         }
-        public async System.Threading.Tasks.Task CreateUser(User user) {
+        public async System.Threading.Tasks.Task CreateUserAsync(User user) {
             
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync(true);

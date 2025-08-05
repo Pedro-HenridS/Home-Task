@@ -153,4 +153,10 @@
   <data name="WITHOUT_NUMBER" xml:space="preserve">
     <value>A simbol is required</value>
   </data>
+  <data name="WRONG_PASSWORD" xml:space="preserve">
+    <value>The password is incorrect</value>
+  </data>
+  <data name="USER_NOT_FOUND" xml:space="preserve">
+    <value>Email not registered</value>
+  </data>
 </root>

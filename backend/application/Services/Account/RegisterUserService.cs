@@ -14,10 +14,10 @@ namespace application.Services.Account
             _userRegisterRepository = userRegisterRepository;
         }
 
-        public void Execute(User user)
+        public async System.Threading.Tasks.Task Execute(User user)
         {
             
-              _userRegisterRepository.CreateUser(user);
+              await _userRegisterRepository.CreateUserAsync(user);
           
         }
     }

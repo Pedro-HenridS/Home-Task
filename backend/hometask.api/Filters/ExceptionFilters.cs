@@ -29,6 +29,13 @@ namespace hometask.api.Filters
                 context.HttpContext.Response.StatusCode =StatusCodes.Status400BadRequest;
                 context.Result = new ObjectResult(errors);
             }
+            if (context.Exception is LoginException LoginException)
+            {
+                var errors = LoginException.Errors;
+
+                context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+                context.Result = new ObjectResult(errors);
+            }
         }
 
         private void UnknowException(ExceptionContext context)

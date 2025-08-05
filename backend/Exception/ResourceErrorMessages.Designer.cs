@@ -133,6 +133,15 @@ namespace Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email not registered.
+        /// </summary>
+        public static string USER_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("USER_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A capitalized letter is required.
         /// </summary>
         public static string WITHOUT_CAPITALIZED_LETTER {
@@ -165,6 +174,15 @@ namespace Exception {
         public static string WITHOUT_SIMBOL {
             get {
                 return ResourceManager.GetString("WITHOUT_SIMBOL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password is incorrect.
+        /// </summary>
+        public static string WRONG_PASSWORD {
+            get {
+                return ResourceManager.GetString("WRONG_PASSWORD", resourceCulture);
             }
         }
     }
