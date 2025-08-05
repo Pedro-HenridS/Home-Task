@@ -16,7 +16,7 @@ namespace hometask.api.Filters
             }
             else
             {
-                HandleException(context);
+                UnknowException(context);
             }
         }
 
