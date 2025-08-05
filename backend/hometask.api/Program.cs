@@ -4,6 +4,7 @@ using application.Services.Validation;
 using application.UseCases;
 using application.Validators;
 using domain.Interfaces.Encrypt;
+using domain.Interfaces.Token;
 using domain.Interfaces.UsersInterfaces;
 using hometask.api.Filters;
 using infra;
@@ -39,6 +40,10 @@ builder.Services.AddScoped<IUserRegisterRepository, UserRegisterRepository>();
 
 // UseCases
 builder.Services.AddScoped<RegisterUseCase>();
+
+builder.Services.Configure<IJwtSettings>(
+    builder.Configuration.GetSection("IJwtSettings")
+);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
