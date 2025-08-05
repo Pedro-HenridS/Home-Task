@@ -117,19 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AMOUNT_MUST_BE_GREATER_THAN_ZERO" xml:space="preserve">
-    <value>O montante deve ser maior que 0</value>
-  </data>
-  <data name="EMPTY_TITLE" xml:space="preserve">
-    <value>O título é obrigatório</value>
-  </data>
-  <data name="FOR_FUTURE" xml:space="preserve">
-    <value>A despesa não pode ser para o futuro</value>
-  </data>
-  <data name="PAYMENT_TYPE_INVALID" xml:space="preserve">
-    <value>O tipo de pagamento não é válido</value>
-  </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Erro desconhecido</value>
+  </data>
+  <data name="EMPTY_EMAIL" xml:space="preserve">
+    <value>O email é obrigatório</value>
+  </data>
+  <data name="EMAIL_ALREADY_IN_USE" xml:space="preserve">
+    <value>O email já está em uso</value>
+  </data>
+  <data name="EMPTY_USERNAME" xml:space="preserve">
+    <value>O nome é obrigatório</value>
+  </data>
+  <data name="NOT_A_EMAIL" xml:space="preserve">
+    <value>Email inválido</value>
+  </data>
+  <data name="EMPTY_PASSWORD" xml:space="preserve">
+    <value>A senha é obrigatória</value>
+  </data>
+  <data name="NOT_EQUAL_PASSWORD" xml:space="preserve">
+    <value>As senhas não são iguais</value>
+  </data>
+  <data name="LESS_THAN_8_CHAR" xml:space="preserve">
+    <value>O campo tem menos de 8 dígitos</value>
+  </data>
+  <data name="WITHOUT_CAPITALIZED_LETTER" xml:space="preserve">
+    <value>É necessária uma letra maiúscula</value>
+  </data>
+  <data name="WITHOUT_LOWERCASE_LETTER" xml:space="preserve">
+    <value>É necessária uma letra minúscula</value>
+  </data>
+  <data name="WITHOUT_SIMBOL" xml:space="preserve">
+    <value>É necessário ao menos um número</value>
+  </data>
+  <data name="WITHOUT_NUMBER" xml:space="preserve">
+    <value>É necessário ao menos um símbolo</value>
   </data>
 </root>
