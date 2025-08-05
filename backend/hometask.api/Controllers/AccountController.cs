@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using communication.Requests.DTO.UsersDTO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace hometask.api.Controllers
@@ -16,9 +17,9 @@ namespace hometask.api.Controllers
 
         [HttpPost]
         [Route("register")]
-        public IActionResult Register([FromBody] ) 
+        public IActionResult Register([FromBody] RegisterDtoRequest request)
         {
-        
-        }
+
+        }  
     }
 }

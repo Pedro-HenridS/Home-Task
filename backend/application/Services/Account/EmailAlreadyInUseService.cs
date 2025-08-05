@@ -1,5 +1,7 @@
 ﻿using domain.Entities;
 using domain.Interfaces.UsersInterfaces;
+using Exception;
+using Exception.Account;
 
 namespace application.Services.Account
 {
@@ -12,17 +14,13 @@ namespace application.Services.Account
             _userRepository = userRepository;
         }
 
-        public async Task<bool> Execute(string email)
+        public async void Execute(string email)
         {
             User user = await _userRepository.FindUserByEmail(email);
 
             if (user == null)
             {
-                return false;
-            }
-            else
-            {
-                return true;
+                throw new RegisterException(ResourceErrorMessages.EMAIL_ALREADY_IN_USE);
             }
 
         }
