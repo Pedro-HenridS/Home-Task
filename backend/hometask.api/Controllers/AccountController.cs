@@ -3,15 +3,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace hometask.api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
     {
-        [HttpGet]
+        [HttpPost]
         [Route("login")]
-        public IActionResult teste(string teste)
+        public IActionResult Login(string teste)
         {
             return Ok("teste");
+        }
+
+        [HttpPost]
+        [Route("register")]
+        public IActionResult Register([FromBody] ) 
+        {
+        
         }
     }
 }
