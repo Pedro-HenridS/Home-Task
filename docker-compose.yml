@@ -13,6 +13,9 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
+      - Jwt__Key=${JWT_KEY}
+      - Jwt__Issuer=hometask.api
+      - Jwt__Audience=frontend
       - ConnectionStrings__DefaultConnection=Server=host.docker.internal;Port=3306;User=${DB_USER};Password=${DB_PASSWORD};Database=${DB_NAME}
     depends_on:
       - frontend
