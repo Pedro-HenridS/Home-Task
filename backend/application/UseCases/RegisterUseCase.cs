@@ -64,8 +64,6 @@ namespace application.UseCases
             // Salva o usuário ao banco
             await _registerUserService.Execute(user);
 
-            await _registerUserService.Execute(user);
-
         }
     }
 }
