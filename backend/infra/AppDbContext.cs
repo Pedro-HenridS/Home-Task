@@ -1,5 +1,6 @@
 ﻿using domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace infra
 {
@@ -14,6 +15,7 @@ namespace infra
         public DbSet<User_Task> User_Task { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Friends> Friends { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -58,6 +60,23 @@ namespace infra
                 .HasOne(i => i.User_Task)
                 .WithMany(ut => ut.Comment)
                 .HasForeignKey(i => i.User_Task_Id);
+
+            modelBuilder.Entity<Friends>(entity =>
+            {
+                
+                entity.HasKey(f => new { f.UserId, f.FriendId });
+
+                entity.HasOne(f => f.User)
+                .WithMany(u => u.Friends)
+                .HasForeignKey(u => u.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(f => f.Friend)
+                .WithMany()
+                .HasForeignKey(f => f.FriendId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            });
         }
     }
 }

@@ -9,5 +9,6 @@
 
         public ICollection<User_Task> User_Task { get; set; }
         public ICollection<Membering> Membering { get; set; }
+        public ICollection<Friends> Friends { get; set; }
     }
 }

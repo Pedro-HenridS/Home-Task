@@ -12,8 +12,8 @@ using infra;
 namespace infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250805171538_AddMigration")]
-    partial class AddMigration
+    [Migration("20250808231533_Friends Table")]
+    partial class FriendsTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,24 @@ namespace infra.Migrations
                     b.HasIndex("User_Task_Id");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("domain.Entities.Friends", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("FriendId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("Id")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("UserId", "FriendId");
+
+                    b.HasIndex("FriendId");
+
+                    b.ToTable("Friends");
                 });
 
             modelBuilder.Entity("domain.Entities.Group", b =>
@@ -190,6 +208,25 @@ namespace infra.Migrations
                     b.Navigation("User_Task");
                 });
 
+            modelBuilder.Entity("domain.Entities.Friends", b =>
+                {
+                    b.HasOne("domain.Entities.User", "Friend")
+                        .WithMany()
+                        .HasForeignKey("FriendId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("domain.Entities.User", "User")
+                        .WithMany("Friends")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Friend");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("domain.Entities.Image", b =>
                 {
                     b.HasOne("domain.Entities.User_Task", "User_Task")
@@ -264,6 +301,8 @@ namespace infra.Migrations
 
             modelBuilder.Entity("domain.Entities.User", b =>
                 {
+                    b.Navigation("Friends");
+
                     b.Navigation("Membering");
 
                     b.Navigation("User_Task");
