@@ -6,6 +6,8 @@ namespace hometask.api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    
+    
     public class AccountController : ControllerBase
     {
         public RegisterUseCase _registerUseCase;
