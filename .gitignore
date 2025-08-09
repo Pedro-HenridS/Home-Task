@@ -3,3 +3,5 @@
 .env
 **/obj/
 **/bin/
+**/Solution Items
+.gitignore

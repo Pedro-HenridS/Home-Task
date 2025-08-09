@@ -9,9 +9,9 @@ namespace domain.Entities
         public Guid User2_Id { get; set; }
 
         [ForeignKey("User1_Id")]
-        public User User1 { get; set; }
+        public User User1 { get; set; } = new User();
 
         [ForeignKey("User2_Id")]
-        public User User2 { get; set; }
+        public User User2 { get; set; } = new User();
     }
 }

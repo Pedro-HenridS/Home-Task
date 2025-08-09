@@ -25,7 +25,7 @@ namespace application.test.Services.Account
                 new Mock<IUserRepository>();
 
             mockRepo.Setup(repo => repo.FindUserByEmail(email))
-                .ReturnsAsync((User)null);
+                .ReturnsAsync((User)null!);
 
             // Simula a injeção de dependência
             var service = new UserExistService(mockRepo.Object);
@@ -44,7 +44,7 @@ namespace application.test.Services.Account
             var id = Guid.NewGuid();
             var mockRepo = new Mock<IUserRepository>();
 
-            mockRepo.Setup(repo => repo.FindUserById(id)).ReturnsAsync((User)null);
+            mockRepo.Setup(repo => repo.FindUserById(id)).ReturnsAsync((User)null!);
 
             var service = new UserExistService(mockRepo.Object);
 

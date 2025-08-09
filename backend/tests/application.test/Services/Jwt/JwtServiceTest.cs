@@ -25,7 +25,7 @@ namespace application.test.Services.Jwt
             _jwtService = new JwtService(settings);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Jwt deve retornar um Token válido")]
         public void Execute_GerarTokenComClaimsValidas()
         {
 
