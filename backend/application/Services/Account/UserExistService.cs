@@ -17,7 +17,7 @@ namespace application.Services.Account
         {
             User user = await _userRepository.FindUserByEmail(email);
 
-            if (user != null)
+            if (user == null)
             {
                 return false;
             }
