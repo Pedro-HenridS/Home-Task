@@ -42,7 +42,7 @@ namespace application.UseCases
 
             // Verifica se o email já foi cadastrado
             var alreadyRegistered = await _userExistService.ByEmail(request.Email);
-            if (alreadyRegistered)
+            if (!alreadyRegistered)
             {
                 throw new RegisterException(ResourceErrorMessages.EMAIL_ALREADY_IN_USE);
             }

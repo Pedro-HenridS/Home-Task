@@ -35,7 +35,7 @@ namespace application.UseCases
             var searchUserResult = await _userExistService.ByEmail(request.Email);
 
             //Se o email não estiver salvo no banco de dados, retorna erro
-            if (!searchUserResult) 
+            if (searchUserResult) 
             {
                 throw new LoginException(ResourceErrorMessages.USER_NOT_FOUND);
             }

@@ -29,14 +29,14 @@ namespace infra.Services.FriendsRepo
                 bothId = new { userId, friendId };
             }
 
-            var result = await _context.Friends.FirstOrDefaultAsync(f => new { f.User1_Id, f.User2_Id }.Equals(bothId));
+            var result = await _context.Friends.FirstOrDefaultAsync(f => f.User1_Id == userId && f.User2_Id == friendId || f.User1_Id == friendId && f.User2_Id == userId);
 
             return  result;
         }
-        public async void AddFriendship(Friends friends)
+        public async Task AddFriendship(Friends friends)
         {
-            _context.Friends.AddAsync(friends);
-            _context.SaveChangesAsync();
+            await _context.Friends.AddAsync(friends);
+            await _context.SaveChangesAsync();
         }
     }
 }

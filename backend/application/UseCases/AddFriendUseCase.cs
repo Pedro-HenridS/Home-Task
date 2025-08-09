@@ -30,14 +30,18 @@ namespace application.UseCases
                 new AddFriendException(ResourceErrorMessages.USER_NOT_FOUND);
             }
 
-            if(await _findFriendshipService.FriendshipExist(request.UserId, request.FriendId))
+            Console.Write(request.UserId.ToString(), request.FriendId.ToString());
+            // Aqui
+            var verifyFriendship = await _findFriendshipService.FriendshipExist(request.UserId, request.FriendId);
+            
+            if (verifyFriendship)
             {
-                new AddFriendException("Amizade já existe");
+                throw new AddFriendException("Amizade já existe");
             }
 
             var friendship = new Friends
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 User1_Id = request.UserId,
                 User2_Id = request.FriendId
             };
@@ -45,13 +49,14 @@ namespace application.UseCases
             if(request.UserId > request.FriendId)
             {
                 friendship = new Friends
-                {
+                {   
+                    Id = Guid.NewGuid(),
                     User1_Id = request.FriendId,
                     User2_Id = request.UserId
                 };
             }
 
-            _friendsRepositories.AddFriendship(friendship);
+            await _friendsRepositories.AddFriendship(friendship);
 
 
         }

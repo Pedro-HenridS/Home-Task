@@ -6,6 +6,6 @@ namespace domain.Interfaces.Friends_Interfaces
     {
         public Task<Friends> SearchFriend(Guid userId, Guid friendId);
         public Task<List<Friends>> AllFriends(Guid userId);
-        public void AddFriendship(Friends friends);
+        public Task AddFriendship(Friends friends);
     }
 }
