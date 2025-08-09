@@ -12,7 +12,7 @@ namespace domain.Entities
         public User User { get; set; }
 
         [ForeignKey("TaskId")]
-        public Task Task { get; set; }
+        public Tasks Task { get; set; }
 
         public ICollection<Image> Image { get; set; }
         public ICollection<Comment> Comment { get; set; }

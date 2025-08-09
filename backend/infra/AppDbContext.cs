@@ -1,5 +1,6 @@
 ﻿using domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace infra
 {
@@ -9,15 +10,16 @@ namespace infra
     
         public DbSet<Group> Groups { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<domain.Entities.Task> Tasks { get; set; }
+        public DbSet<Tasks> Tasks { get; set; }
         public DbSet<Membering> Membering { get; set; }
         public DbSet<User_Task> User_Task { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Friends> Friends { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<domain.Entities.Task>()
+            modelBuilder.Entity<domain.Entities.Tasks>()
                 .HasOne(t => t.Group)
                 .WithMany(g => g.Task)
                 .HasForeignKey(t => t.Group_Id)
@@ -58,6 +60,23 @@ namespace infra
                 .HasOne(i => i.User_Task)
                 .WithMany(ut => ut.Comment)
                 .HasForeignKey(i => i.User_Task_Id);
+
+            modelBuilder.Entity<Friends>(entity =>
+            {
+                
+                entity.HasKey(f => new { f.User1_Id, f.User2_Id });
+
+                entity.HasOne(f => f.User1)
+                .WithMany(u => u.Friends)
+                .HasForeignKey(u => u.User1_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(f => f.User2)
+                .WithMany()
+                .HasForeignKey(f => f.User2_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            });
         }
     }
 }

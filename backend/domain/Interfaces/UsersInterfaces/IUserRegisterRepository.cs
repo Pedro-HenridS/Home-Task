@@ -4,6 +4,6 @@ namespace domain.Interfaces.UsersInterfaces
 {
     public interface IUserRegisterRepository
     {
-        public System.Threading.Tasks.Task CreateUserAsync(User user);
+        public Task CreateUserAsync(User user);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using communication.Responses.Exception;
 using Exception;
 using Exception.Account;
+using Exception.Friend;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -37,6 +38,22 @@ namespace hometask.api.Filters
                 context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
                 context.Result = new ObjectResult(errors);
             }
+            if (context.Exception is FriendshipException FriendshipException)
+            {
+                var errors = FriendshipException.Errors;
+
+                context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+                context.Result = new ObjectResult(errors);
+            }
+
+            if (context.Exception is AddFriendException AddFriendException)
+            {
+                var errors = AddFriendException.Errors;
+
+                context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+                context.Result = new ObjectResult(errors);
+            }
+
         }
 
         private void UnknowException(ExceptionContext context)

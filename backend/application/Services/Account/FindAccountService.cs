@@ -1,8 +1,6 @@
 ﻿
 using communication.Requests.DTO.UsersDTO;
 using domain.Interfaces.UsersInterfaces;
-using Exception;
-using Exception.Account;
 
 namespace application.Services.Account
 {

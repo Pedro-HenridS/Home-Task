@@ -1,4 +1,4 @@
-
+using application.Interfaces;
 using application.Services.Account;
 using application.Services.Encrypt;
 using application.Services.Jwt;
@@ -34,7 +34,7 @@ builder.Services.AddScoped<RegisterUserValidator>();
 
 
 // services
-
+builder.Services.AddScoped<UserExistService>();
 builder.Services.AddScoped<RegisterUserService>();
 builder.Services.AddScoped<PasswordHasherService>();
 builder.Services.AddScoped<VerifyHashService>();
@@ -45,10 +45,15 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IUserRegisterRepository, UserRegisterRepository>();
 builder.Services.AddScoped<IVerifyPasswordHash, VerifyPasswordHash>();
+builder.Services.AddScoped<IPasswordHasherService, PasswordHasherService>();
+builder.Services.AddScoped<IRegisterUserService, RegisterUserService>();
+builder.Services.AddScoped<IUserExistService, UserExistService>();
+builder.Services.AddScoped<IFindFriendshipService, FindFriendshipService>();
 
 // UseCases
 builder.Services.AddScoped<RegisterUseCase>();
 builder.Services.AddScoped<LoginUseCase>();
+builder.Services.AddScoped<AddFriendUseCase>();
 
 builder.Services.Configure<IJwtSettings>(builder.Configuration.GetSection("Jwt"));
 

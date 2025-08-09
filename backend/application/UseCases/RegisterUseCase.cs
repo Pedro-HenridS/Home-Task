@@ -1,5 +1,4 @@
-﻿using application.Services.Account;
-using application.Services.Encrypt;
+﻿using application.Interfaces;
 using application.Validators;
 using communication.Requests.DTO.UsersDTO;
 using domain.Entities;
@@ -12,20 +11,20 @@ namespace application.UseCases
     public class RegisterUseCase
     {
         private RegisterUserValidator _userValidator;
-        private EmailAlreadyInUseService _emailAlreadyInUseService;
-        private PasswordHasherService _passwordHasherService;
-        private RegisterUserService _registerUserService;
+        private IPasswordHasherService _passwordHasherService;
+        private IUserExistService _userExistService;
+        private IRegisterUserService _registerUserService;
 
         public RegisterUseCase
         (
             RegisterUserValidator userValidator,
-            EmailAlreadyInUseService emailAlreadyInUseService,
-            PasswordHasherService passwordHasherService,
-            RegisterUserService registerUserService
+            IPasswordHasherService passwordHasherService,
+            IUserExistService userExistService,
+            IRegisterUserService registerUserService
         )
         {
             _userValidator = userValidator;
-            _emailAlreadyInUseService = emailAlreadyInUseService;
+            _userExistService = userExistService;
             _passwordHasherService = passwordHasherService;
             _registerUserService = registerUserService;
         }
@@ -42,8 +41,7 @@ namespace application.UseCases
             }
 
             // Verifica se o email já foi cadastrado
-
-            var alreadyRegistered = await _emailAlreadyInUseService.Execute(request.Email);
+            var alreadyRegistered = await _userExistService.ByEmail(request.Email);
             if (alreadyRegistered)
             {
                 throw new RegisterException(ResourceErrorMessages.EMAIL_ALREADY_IN_USE);
