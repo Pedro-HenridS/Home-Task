@@ -29,7 +29,7 @@ namespace application.Services.Account
         {
             User user = await _userRepository.FindUserById(id);
 
-            if (user != null)
+            if (user == null)
             {
                 return false;
             }

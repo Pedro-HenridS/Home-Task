@@ -25,7 +25,7 @@ namespace application.UseCases
 
         public async Task AddFriend(AddFriendDtoRequest request)
         {
-            if (!await _userExistService.ById(request.FriendId))
+            if (await _userExistService.ById(request.FriendId))
             {
                 new AddFriendException(ResourceErrorMessages.USER_NOT_FOUND);
             }
