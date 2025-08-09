@@ -1,11 +1,12 @@
-﻿using domain.Entities;
+﻿using application.Interfaces;
+using domain.Entities;
 using domain.Interfaces.Friends_Interfaces;
 using Exception;
 using Exception.Friend;
 
 namespace application.Services.Account
 {
-    public class FindFriendshipService 
+    public class FindFriendshipService : IFindFriendshipService
     {
         public IFriendsRepositories _friendsRepositories;
 
