@@ -1,4 +1,5 @@
-﻿using application.Services.Account;
+﻿using application.Interfaces;
+using application.Services.Account;
 using application.Services.Encrypt;
 using application.Services.Jwt;
 using communication.Requests.DTO.TokenDTO;
@@ -13,25 +14,25 @@ namespace application.UseCases
         private FindAccountService _accountService;
         private VerifyHashService _verifyHashService;
         private JwtService _jwtService;
-        private EmailAlreadyInUseService _emailAlreadyInUseService;
+        private IUserExistService _userExistService;
 
         public LoginUseCase(
             FindAccountService accountService,
             VerifyHashService verifyHashService,
             JwtService JwtService,
-            EmailAlreadyInUseService emailAlreadyInUseService
+            IUserExistService userExistService
             )
         {
             _accountService = accountService;
             _verifyHashService = verifyHashService;
             _jwtService = JwtService;
-            _emailAlreadyInUseService = emailAlreadyInUseService;
+            _userExistService = userExistService;
         }
 
         public async Task<string> Login(LoginDtoRequest request)
         {
 
-            var searchUserResult = await _emailAlreadyInUseService.Execute(request.Email);
+            var searchUserResult = await _userExistService.ByEmail(request.Email);
 
             //Se o email não estiver salvo no banco de dados, retorna erro
             if (!searchUserResult) 

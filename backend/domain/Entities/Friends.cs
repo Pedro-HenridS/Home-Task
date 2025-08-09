@@ -5,13 +5,13 @@ namespace domain.Entities
     public class Friends
     {
         public Guid Id { get; set; }
-        public Guid UserId { get; set; }
-        public Guid FriendId { get; set; }
+        public Guid User1_Id { get; set; }
+        public Guid User2_Id { get; set; }
 
-        [ForeignKey("UserId")]
-        public User User { get; set; }
+        [ForeignKey("User1_Id")]
+        public User User1 { get; set; }
 
-        [ForeignKey("FriendId")]
-        public User Friend { get; set; }
+        [ForeignKey("User2_Id")]
+        public User User2 { get; set; }
     }
 }

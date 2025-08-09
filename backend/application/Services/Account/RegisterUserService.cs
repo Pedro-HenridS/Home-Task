@@ -1,11 +1,10 @@
-﻿
-
+﻿using application.Interfaces;
 using domain.Entities;
 using domain.Interfaces.UsersInterfaces;
 
 namespace application.Services.Account
 {
-    public class RegisterUserService
+    public class RegisterUserService : IRegisterUserService
     {
         public IUserRegisterRepository _userRegisterRepository;
 
@@ -14,7 +13,7 @@ namespace application.Services.Account
             _userRegisterRepository = userRegisterRepository;
         }
 
-        public async System.Threading.Tasks.Task Execute(User user)
+        public async Task Execute(User user)
         {
             
               await _userRegisterRepository.CreateUserAsync(user);

@@ -61,6 +61,15 @@ namespace Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The user are already yout friend.
+        /// </summary>
+        public static string ALREADY_FRIENDS {
+            get {
+                return ResourceManager.GetString("ALREADY_FRIENDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The email is already in use.
         /// </summary>
         public static string EMAIL_ALREADY_IN_USE {
@@ -97,11 +106,29 @@ namespace Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Friend not found.
+        /// </summary>
+        public static string FRIEND_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("FRIEND_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The field has less than 8 digits.
         /// </summary>
         public static string LESS_THAN_8_CHAR {
             get {
                 return ResourceManager.GetString("LESS_THAN_8_CHAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No friends founded.
+        /// </summary>
+        public static string NO_FRIENDS {
+            get {
+                return ResourceManager.GetString("NO_FRIENDS", resourceCulture);
             }
         }
         

@@ -5,6 +5,7 @@ namespace domain.Interfaces.UsersInterfaces
 {
     public interface IUserRepository
     {
-        public Task<User> FindUserByEmail(string email);        
+        public Task<User> FindUserByEmail(string email);
+        public Task<User> FindUserById(Guid id);
     }
 }

@@ -123,9 +123,6 @@
   <data name="EMPTY_EMAIL" xml:space="preserve">
     <value>O email é obrigatório</value>
   </data>
-  <data name="EMAIL_ALREADY_IN_USE" xml:space="preserve">
-    <value>O email já está em uso</value>
-  </data>
   <data name="EMPTY_USERNAME" xml:space="preserve">
     <value>O nome é obrigatório</value>
   </data>
@@ -157,6 +154,18 @@
     <value>A senha está incorreta</value>
   </data>
   <data name="USER_NOT_FOUND" xml:space="preserve">
-    <value>Email não cadastrado</value>
+    <value>O usuário não foi encontrado</value>
+  </data>
+  <data name="EMAIL_ALREADY_IN_USE" xml:space="preserve">
+    <value>O email já está em uso</value>
+  </data>
+  <data name="NO_FRIENDS" xml:space="preserve">
+    <value>Nenhum amigo encontrado</value>
+  </data>
+  <data name="FRIEND_NOT_FOUND" xml:space="preserve">
+    <value>Amigo não encontrado</value>
+  </data>
+  <data name="ALREADY_FRIENDS" xml:space="preserve">
+    <value>O usuário já é seu amigo</value>
   </data>
 </root>

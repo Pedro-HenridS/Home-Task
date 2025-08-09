@@ -1,10 +1,11 @@
 ﻿
 
+using application.Interfaces;
 using domain.Interfaces.Encrypt;
 
 namespace application.Services.Encrypt
 {
-    public class PasswordHasherService
+    public class PasswordHasherService : IPasswordHasherService
     {
         private IPasswordHasher _passwordHasher;
 
