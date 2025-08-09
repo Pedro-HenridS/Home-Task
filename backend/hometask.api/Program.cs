@@ -5,11 +5,13 @@ using application.Services.Jwt;
 using application.UseCases;
 using application.Validators;
 using domain.Interfaces.Encrypt;
+using domain.Interfaces.Friends_Interfaces;
 using domain.Interfaces.Token;
 using domain.Interfaces.UsersInterfaces;
 using hometask.api.Filters;
 using infra;
 using infra.Services.Encrypt;
+using infra.Services.FriendsRepo;
 using infra.Services.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -49,6 +51,8 @@ builder.Services.AddScoped<IPasswordHasherService, PasswordHasherService>();
 builder.Services.AddScoped<IRegisterUserService, RegisterUserService>();
 builder.Services.AddScoped<IUserExistService, UserExistService>();
 builder.Services.AddScoped<IFindFriendshipService, FindFriendshipService>();
+builder.Services.AddScoped<IFriendsRepositories, FriendsRepository>();
+
 
 // UseCases
 builder.Services.AddScoped<RegisterUseCase>();

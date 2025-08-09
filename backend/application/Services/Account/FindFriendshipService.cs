@@ -11,7 +11,7 @@ namespace application.Services.Account
         public IFriendsRepositories _friendsRepositories;
 
         public FindFriendshipService(
-         IFriendsRepositories friendsRepositories
+            IFriendsRepositories friendsRepositories
         )
         {
             _friendsRepositories = friendsRepositories;
@@ -23,7 +23,7 @@ namespace application.Services.Account
 
             if (friends == null)
             {
-                throw new FriendshipException("Nenhum amigo encontrado");
+                throw new FriendshipException("No friends");
             }
 
             return friends;
