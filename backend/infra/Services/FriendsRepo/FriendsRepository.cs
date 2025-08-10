@@ -31,7 +31,7 @@ namespace infra.Services.FriendsRepo
 
             var result = await _context.Friends.FirstOrDefaultAsync(f => f.User1_Id == userId && f.User2_Id == friendId || f.User1_Id == friendId && f.User2_Id == userId);
 
-            return  result;
+            return  result!;
         }
         public async Task AddFriendship(Friends friends)
         {

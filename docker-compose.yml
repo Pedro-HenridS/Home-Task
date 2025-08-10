@@ -17,8 +17,8 @@ services:
       - Jwt__Issuer=hometask.api
       - Jwt__Audience=frontend
       - ConnectionStrings__DefaultConnection=Server=host.docker.internal;Port=3306;User=${DB_USER};Password=${DB_PASSWORD};Database=${DB_NAME}
-    depends_on:
-      - frontend
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   frontend:
     build:
@@ -27,3 +27,4 @@ services:
     container_name: frontend-hometask-container
     ports:
       - "3001:80"
+

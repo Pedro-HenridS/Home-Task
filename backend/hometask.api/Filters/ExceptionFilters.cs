@@ -15,10 +15,12 @@ namespace hometask.api.Filters
             {
                 HandleException(context);
             }
+            /*
             else
             {
                 UnknowException(context);
             }
+            */
         }
 
         private void HandleException(ExceptionContext context)
