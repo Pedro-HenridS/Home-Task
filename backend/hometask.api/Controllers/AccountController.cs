@@ -6,8 +6,8 @@ namespace hometask.api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    
-    
+
+
     public class AccountController : ControllerBase
     {
         public RegisterUseCase _registerUseCase;
@@ -16,13 +16,13 @@ namespace hometask.api.Controllers
         public AccountController(
             RegisterUseCase registerUseCase,
             LoginUseCase loginUseCase
-            ) 
+            )
         {
             _registerUseCase = registerUseCase;
             _loginUseCase = loginUseCase;
         }
 
-        
+
 
         [HttpPost]
         [Route("register")]
@@ -35,11 +35,18 @@ namespace hometask.api.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login(LoginDtoRequest request)
+        public async Task<IActionResult> Login([FromBody] LoginDtoRequest request)
         {
             string token = await _loginUseCase.Login(request);
 
             return Ok(token);
+        }
+
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public async Task<IActionResult> Delete([FromBody] Guid id)
+        {
+            return Ok();
         }
     }
 }

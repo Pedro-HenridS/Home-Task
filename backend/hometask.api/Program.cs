@@ -45,7 +45,6 @@ builder.Services.AddScoped<FindAccountService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
-builder.Services.AddScoped<IUserRegisterRepository, UserRegisterRepository>();
 builder.Services.AddScoped<IVerifyPasswordHash, VerifyPasswordHash>();
 builder.Services.AddScoped<IPasswordHasherService, PasswordHasherService>();
 builder.Services.AddScoped<IRegisterUserService, RegisterUserService>();

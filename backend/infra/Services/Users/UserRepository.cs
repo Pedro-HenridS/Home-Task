@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace infra.Services.Users
 {
-    
+
     public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _context;
 
-        public UserRepository(AppDbContext context) {
+        public UserRepository(AppDbContext context)
+        {
             _context = context;
         }
 
@@ -22,6 +23,12 @@ namespace infra.Services.Users
         public async Task<User> FindUserById(Guid id)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+        }
+        
+        public async Task CreateUserAsync(User user) {
+            
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync(true);
         }
     }
 }

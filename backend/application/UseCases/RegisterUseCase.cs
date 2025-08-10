@@ -29,7 +29,7 @@ namespace application.UseCases
             _registerUserService = registerUserService;
         }
 
-        public async System.Threading.Tasks.Task RegisterUser(RegisterDtoRequest request)
+        public async Task RegisterUser(RegisterDtoRequest request)
         {
             ValidationResult validationResult = _userValidator.Validate(request);
 

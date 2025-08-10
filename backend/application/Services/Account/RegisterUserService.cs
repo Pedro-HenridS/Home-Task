@@ -6,9 +6,9 @@ namespace application.Services.Account
 {
     public class RegisterUserService : IRegisterUserService
     {
-        public IUserRegisterRepository _userRegisterRepository;
+        public IUserRepository _userRegisterRepository;
 
-        public RegisterUserService(IUserRegisterRepository userRegisterRepository)
+        public RegisterUserService(IUserRepository userRegisterRepository)
         {
             _userRegisterRepository = userRegisterRepository;
         }
