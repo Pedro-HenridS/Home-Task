@@ -9,7 +9,7 @@ namespace application.test.Services.Account
 {
     public class UserExistServiceTest
     {
-        // mockar o banco de dados
+
         // se o usuário mandar string email ->  retornar null
 
         [Fact(DisplayName = "Retorna FALSE se o usuário com o EMAIL não existir")]
