@@ -5,7 +5,7 @@
 namespace infra.Migrations
 {
     /// <inheritdoc />
-    public partial class db_tables : Migration
+    public partial class FixGenerateUser : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

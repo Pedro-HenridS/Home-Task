@@ -64,15 +64,15 @@ namespace infra
             modelBuilder.Entity<Friends>(entity =>
             {
                 
-                entity.HasKey(f => new { f.User1_Id, f.User2_Id });
+                entity.HasKey(f => f.Id);
 
                 entity.HasOne(f => f.User1)
-                .WithMany(u => u.Friends)
+                .WithMany(u => u.FriendsAsUser1)
                 .HasForeignKey(u => u.User1_Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
                 entity.HasOne(f => f.User2)
-                .WithMany()
+                .WithMany(u => u.FriendsAsUser2)
                 .HasForeignKey(f => f.User2_Id)
                 .OnDelete(DeleteBehavior.Cascade);
 

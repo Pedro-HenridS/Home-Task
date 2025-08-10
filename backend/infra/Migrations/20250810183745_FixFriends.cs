@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace infra.Migrations
 {
     /// <inheritdoc />
-    public partial class Criandotabelas : Migration
+    public partial class FixFriends : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -76,13 +76,13 @@ namespace infra.Migrations
                 name: "Friends",
                 columns: table => new
                 {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     User1_Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    User2_Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                    User2_Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Friends", x => new { x.User1_Id, x.User2_Id });
+                    table.PrimaryKey("PK_Friends", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Friends_Users_User1_Id",
                         column: x => x.User1_Id,
@@ -195,6 +195,11 @@ namespace infra.Migrations
                 name: "IX_Comments_User_Task_Id",
                 table: "Comments",
                 column: "User_Task_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Friends_User1_Id",
+                table: "Friends",
+                column: "User1_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Friends_User2_Id",

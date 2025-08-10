@@ -12,8 +12,8 @@ using infra;
 namespace infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250810132531_db_tables")]
-    partial class db_tables
+    [Migration("20250810183745_FixFriends")]
+    partial class FixFriends
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,16 +47,19 @@ namespace infra.Migrations
 
             modelBuilder.Entity("domain.Entities.Friends", b =>
                 {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
                     b.Property<Guid>("User1_Id")
                         .HasColumnType("char(36)");
 
                     b.Property<Guid>("User2_Id")
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("Id")
-                        .HasColumnType("char(36)");
+                    b.HasKey("Id");
 
-                    b.HasKey("User1_Id", "User2_Id");
+                    b.HasIndex("User1_Id");
 
                     b.HasIndex("User2_Id");
 
@@ -211,13 +214,13 @@ namespace infra.Migrations
             modelBuilder.Entity("domain.Entities.Friends", b =>
                 {
                     b.HasOne("domain.Entities.User", "User1")
-                        .WithMany("Friends")
+                        .WithMany("FriendsAsUser1")
                         .HasForeignKey("User1_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("domain.Entities.User", "User2")
-                        .WithMany()
+                        .WithMany("FriendsAsUser2")
                         .HasForeignKey("User2_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -301,7 +304,9 @@ namespace infra.Migrations
 
             modelBuilder.Entity("domain.Entities.User", b =>
                 {
-                    b.Navigation("Friends");
+                    b.Navigation("FriendsAsUser1");
+
+                    b.Navigation("FriendsAsUser2");
 
                     b.Navigation("Membering");
 
