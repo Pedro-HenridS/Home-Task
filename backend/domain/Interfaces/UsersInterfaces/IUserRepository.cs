@@ -8,5 +8,6 @@ namespace domain.Interfaces.UsersInterfaces
         public Task<User> FindUserByEmail(string email);
         public Task<User> FindUserById(Guid id);
         public Task CreateUserAsync(User user);
+        public Task DeleteUserAsync(Guid id);
     }
 }

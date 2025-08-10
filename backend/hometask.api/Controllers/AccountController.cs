@@ -10,16 +10,19 @@ namespace hometask.api.Controllers
 
     public class AccountController : ControllerBase
     {
-        public RegisterUseCase _registerUseCase;
-        public LoginUseCase _loginUseCase;
+        private RegisterUseCase _registerUseCase;
+        private LoginUseCase _loginUseCase;
+        private DeleteUseCase _deleteUseCase;
 
         public AccountController(
             RegisterUseCase registerUseCase,
-            LoginUseCase loginUseCase
+            LoginUseCase loginUseCase,
+            DeleteUseCase deleteUseCase
             )
         {
             _registerUseCase = registerUseCase;
             _loginUseCase = loginUseCase;
+            _deleteUseCase = deleteUseCase;
         }
 
 
@@ -44,8 +47,9 @@ namespace hometask.api.Controllers
 
         [HttpDelete]
         [Route("delete/{id}")]
-        public async Task<IActionResult> Delete([FromBody] Guid id)
+        public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
+            await _deleteUseCase.Delete(id);   
             return Ok();
         }
     }

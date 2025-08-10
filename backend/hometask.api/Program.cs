@@ -50,6 +50,7 @@ builder.Services.AddScoped<IPasswordHasherService, PasswordHasherService>();
 builder.Services.AddScoped<IRegisterUserService, RegisterUserService>();
 builder.Services.AddScoped<IUserExistService, UserExistService>();
 builder.Services.AddScoped<IFindFriendshipService, FindFriendshipService>();
+builder.Services.AddScoped<IDeleteUserService, DeleteUserService>();
 builder.Services.AddScoped<IFriendsRepositories, FriendsRepository>();
 
 
@@ -57,6 +58,7 @@ builder.Services.AddScoped<IFriendsRepositories, FriendsRepository>();
 builder.Services.AddScoped<RegisterUseCase>();
 builder.Services.AddScoped<LoginUseCase>();
 builder.Services.AddScoped<AddFriendUseCase>();
+builder.Services.AddScoped<DeleteUseCase>();
 
 builder.Services.Configure<IJwtSettings>(builder.Configuration.GetSection("Jwt"));
 
