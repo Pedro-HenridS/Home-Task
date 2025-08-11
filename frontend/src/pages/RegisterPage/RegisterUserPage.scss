@@ -1,0 +1,14 @@
+@use '../../styles/variables.scss' as v;
+
+.container-section{
+    width: 30rem;
+    height: 38rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button{
+    margin-top: 2rem;
+}

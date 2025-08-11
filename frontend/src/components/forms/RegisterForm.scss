@@ -1,28 +1,19 @@
 @use '../../styles/variables.scss' as v;
 
 form{
-    width: 30rem;
-    height: 38rem;
-    box-shadow: v.$shadow-1; 
-    border-radius: 20px;
+    max-height: 70%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     
-    
-
     section{
-        width: 70%;
-        min-height: 5rem;
+   
         display: flex;
         flex-direction: column;
-        align-items:baseline;
+
+        box-sizing: border-box;
+
+        align-items:flex-start;
         justify-content: space-around;
-        padding: 2rem;
-        
-        .username{
-            color: red;
-        }
 
         #pass-two{
                 margin-top: 1rem;
@@ -30,3 +21,10 @@ form{
     }   
 }
 
+#email{
+    margin-top: 1.5rem;
+}
+#password{
+    margin-top: 1.5rem;
+}
+        
