@@ -2,12 +2,13 @@ import { forwardRef, useImperativeHandle, useState } from 'react';
 import type { IRegisterFormData } from '../../interfaces/IRegisterFormData';
 import './RegisterForm.scss';
 import axios from 'axios';
+import type { IRegisterFormHandle } from '../../interfaces/IFormHandle';
 
-export interface IRegisterFormHandle {
-    submitForm: () => void;
-}
+
 
 const RegisterForm = forwardRef<IRegisterFormHandle>((_props, ref) => {
+
+    // Criação do useState e da função que altera ele
     const [formData, setFormData] = useState<IRegisterFormData>({
         Username: '',
         Email: '',
@@ -15,7 +16,7 @@ const RegisterForm = forwardRef<IRegisterFormHandle>((_props, ref) => {
         ConfirmedPassword: ''
     });
 
-    
+    // Define o que vai acontecer quando receber a ref externa
     useImperativeHandle(ref, () => ({
         submitForm: () => {
             hadleSubmit();
