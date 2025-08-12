@@ -1,12 +1,12 @@
 import { forwardRef, useImperativeHandle, useState } from 'react';
-import type { IRegisterFormData } from '../../interfaces/IRegisterFormData';
+import type { IRegisterFormData } from '../../../interfaces/Requests/IRegisterFormData';
 import './RegisterForm.scss';
 import axios from 'axios';
-import type { IRegisterFormHandle } from '../../interfaces/IFormHandle';
+import type { IFormHandle } from '../../../interfaces/IFormHandle';
 
 
 
-const RegisterForm = forwardRef<IRegisterFormHandle>((_props, ref) => {
+const RegisterForm = forwardRef<IFormHandle>((_props, ref) => {
 
     // Criação do useState e da função que altera ele
     const [formData, setFormData] = useState<IRegisterFormData>({

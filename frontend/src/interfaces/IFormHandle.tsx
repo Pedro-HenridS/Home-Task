@@ -1,3 +1,3 @@
-export interface IRegisterFormHandle {
+export interface IFormHandle {
     submitForm: () => void;
 }

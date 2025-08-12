@@ -42,7 +42,7 @@ namespace hometask.api.Controllers
         {
             string token = await _loginUseCase.Login(request);
 
-            return Ok(token);
+            return Ok(new { token });
         }
 
         [HttpDelete]
