@@ -12,7 +12,7 @@
 
 ## 📌 Sobre o Projeto
 
-O **HomeTask** é um aplicativo pensado para ajudar famílias, colegas de casa ou indivíduos a organizarem e acompanharem suas tarefas domésticas de forma prática e intuitiva.  
+O **HomeTask** é uma solução pensada para ajudar famílias, colegas de casa ou indivíduos a organizarem e acompanharem suas tarefas de forma prática e intuitiva.  
 Com ele, você pode:
 - Criar e atribuir tarefas
 - Definir prazos e prioridades
@@ -24,21 +24,8 @@ Com ele, você pode:
 ## 🚀 Tecnologias Utilizadas
 
 - **Frontend:** React / React Native
-- **Backend:** .NET 8 / Node.js (dependendo da sua stack)
-- **Banco de Dados:** PostgreSQL / MongoDB
+- **Backend:** .NET 8 
+- **Banco de Dados:** MySql
 - **Outros:** Axios, JWT, Styled Components, etc.
 
 ---
-
-## 📂 Estrutura do Projeto
-
-```plaintext
-📦 hometask
- ┣ 📂 src
- ┃ ┣ 📂 components
- ┃ ┣ 📂 pages
- ┃ ┣ 📂 services
- ┃ ┗ 📜 App.jsx
- ┣ 📜 package.json
- ┣ 📜 README.md
- ┗ 📜 .gitignore
