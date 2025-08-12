@@ -6,12 +6,14 @@ using application.UseCases;
 using application.Validators;
 using domain.Interfaces.Encrypt;
 using domain.Interfaces.Friends_Interfaces;
+using domain.Interfaces.TasksInterfaces;
 using domain.Interfaces.Token;
 using domain.Interfaces.UsersInterfaces;
 using hometask.api.Filters;
 using infra;
 using infra.Services.Encrypt;
 using infra.Services.FriendsRepo;
+using infra.Services.TasksRepo;
 using infra.Services.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -59,7 +61,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
-
 builder.Configuration.AddUserSecrets<Program>(optional: true);
 
 builder.Services.AddControllers();
@@ -74,7 +75,6 @@ builder.Services.AddControllers(options => {
 
 // validador
 builder.Services.AddScoped<RegisterUserValidator>();
-
 
 // services
 builder.Services.AddScoped<UserExistService>();
@@ -93,6 +93,7 @@ builder.Services.AddScoped<IUserExistService, UserExistService>();
 builder.Services.AddScoped<IFindFriendshipService, FindFriendshipService>();
 builder.Services.AddScoped<IDeleteUserService, DeleteUserService>();
 builder.Services.AddScoped<IFriendsRepositories, FriendsRepository>();
+builder.Services.AddScoped<ITasksRespository, TasksRespository>();
 
 
 // UseCases
@@ -100,6 +101,7 @@ builder.Services.AddScoped<RegisterUseCase>();
 builder.Services.AddScoped<LoginUseCase>();
 builder.Services.AddScoped<AddFriendUseCase>();
 builder.Services.AddScoped<DeleteUseCase>();
+builder.Services.AddScoped<AllTasksUseCase>();
 
 builder.Services.Configure<IJwtSettings>(builder.Configuration.GetSection("Jwt"));
 
