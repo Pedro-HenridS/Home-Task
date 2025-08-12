@@ -1,6 +1,6 @@
 <!-- Imagem de capa -->
 <p align="center">
-  <img src="COLOQUE_AQUI_O_LINK_DA_IMAGEM" alt="HomeTask Banner" width="800">
+  <img src="https://github.com/Pedro-HenridS/Home-Task/blob/main/Mockup%20tela%20de%20login.png" alt="HomeTask Banner" width="800">
 </p>
 
 <h1 align="center">🏠 HomeTask</h1>
