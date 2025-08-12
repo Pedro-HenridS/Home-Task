@@ -27,6 +27,11 @@ namespace infra.Services.TasksRepo
 
             return result;
         }
+
+        public async Task AddTaskWithuser()
+        {
+
+        }
     }
 }
 

@@ -1,11 +1,19 @@
 using application.Interfaces;
+using application.Interfaces.Group;
+using application.Interfaces.User;
 using application.Services.Account;
 using application.Services.Encrypt;
+using application.Services.Groups;
 using application.Services.Jwt;
-using application.UseCases;
+using application.Services.Tasks_;
+using application.UseCases.FriendshipUseCase;
+using application.UseCases.GroupUseCase;
+using application.UseCases.TasksUseCase;
+using application.UseCases.UsersUseCase;
 using application.Validators;
 using domain.Interfaces.Encrypt;
 using domain.Interfaces.Friends_Interfaces;
+using domain.Interfaces.Groups;
 using domain.Interfaces.TasksInterfaces;
 using domain.Interfaces.Token;
 using domain.Interfaces.UsersInterfaces;
@@ -13,6 +21,7 @@ using hometask.api.Filters;
 using infra;
 using infra.Services.Encrypt;
 using infra.Services.FriendsRepo;
+using infra.Services.GroupRepo;
 using infra.Services.TasksRepo;
 using infra.Services.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -94,6 +103,11 @@ builder.Services.AddScoped<IFindFriendshipService, FindFriendshipService>();
 builder.Services.AddScoped<IDeleteUserService, DeleteUserService>();
 builder.Services.AddScoped<IFriendsRepositories, FriendsRepository>();
 builder.Services.AddScoped<ITasksRespository, TasksRespository>();
+builder.Services.AddScoped<IGetAllTasks, GetAllTasksService>();
+builder.Services.AddScoped<IAddGroupService, AddGroupService>();
+builder.Services.AddScoped<IGroupsRepository, GroupsRepository>();
+
+
 
 
 // UseCases
@@ -102,6 +116,7 @@ builder.Services.AddScoped<LoginUseCase>();
 builder.Services.AddScoped<AddFriendUseCase>();
 builder.Services.AddScoped<DeleteUseCase>();
 builder.Services.AddScoped<AllTasksUseCase>();
+builder.Services.AddScoped<AddGroupUseCase>();
 
 builder.Services.Configure<IJwtSettings>(builder.Configuration.GetSection("Jwt"));
 

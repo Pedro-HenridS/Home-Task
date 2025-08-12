@@ -1,4 +1,4 @@
-using application.Interfaces;
+using application.Interfaces.User;
 using domain.Interfaces.UsersInterfaces;
 
 namespace application.Services.Account

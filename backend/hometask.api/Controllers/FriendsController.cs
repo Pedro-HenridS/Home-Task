@@ -1,4 +1,4 @@
-﻿using application.UseCases;
+﻿using application.UseCases.FriendshipUseCase;
 using communication.Requests.DTO.UsersDTO;
 using Microsoft.AspNetCore.Mvc;
 

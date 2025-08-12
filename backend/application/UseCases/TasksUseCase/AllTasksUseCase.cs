@@ -1,7 +1,7 @@
 ﻿using application.Interfaces;
 using domain.Entities;
 
-namespace application.UseCases
+namespace application.UseCases.TasksUseCase
 {
     public class AllTasksUseCase
     {

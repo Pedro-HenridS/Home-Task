@@ -6,7 +6,7 @@ namespace hometask.api.Controllers
 {
     [Route("/[controller]")]
     [ApiController]
-    public class HomeController : ControllerBase
+    public class TasksController : ControllerBase
     {
         [Authorize]
         [HttpGet]

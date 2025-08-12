@@ -1,4 +1,4 @@
-﻿namespace application.Interfaces
+﻿namespace application.Interfaces.User
 {
     public interface IUserExistService
     {

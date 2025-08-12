@@ -1,9 +1,8 @@
-
-using application.Interfaces;
+using application.Interfaces.User;
 using Exception;
 using Exception.Account;
 
-namespace application.UseCases
+namespace application.UseCases.UsersUseCase
 {
     public class DeleteUseCase
     {

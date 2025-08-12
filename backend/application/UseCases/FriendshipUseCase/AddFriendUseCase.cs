@@ -1,11 +1,12 @@
 ﻿using application.Interfaces;
+using application.Interfaces.User;
 using communication.Requests.DTO.UsersDTO;
 using domain.Entities;
 using domain.Interfaces.Friends_Interfaces;
 using Exception;
 using Exception.Friend;
 
-namespace application.UseCases
+namespace application.UseCases.FriendshipUseCase
 {
     public class AddFriendUseCase
     {

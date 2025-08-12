@@ -1,4 +1,5 @@
 ﻿using application.Interfaces;
+using application.Interfaces.User;
 using application.Validators;
 using communication.Requests.DTO.UsersDTO;
 using domain.Entities;
@@ -6,7 +7,7 @@ using Exception;
 using Exception.Account;
 using FluentValidation.Results;
 
-namespace application.UseCases
+namespace application.UseCases.UsersUseCase
 {
     public class RegisterUseCase
     {

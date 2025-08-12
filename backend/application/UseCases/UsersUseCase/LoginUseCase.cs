@@ -1,4 +1,4 @@
-﻿using application.Interfaces;
+﻿using application.Interfaces.User;
 using application.Services.Account;
 using application.Services.Encrypt;
 using application.Services.Jwt;
@@ -7,7 +7,7 @@ using communication.Requests.DTO.UsersDTO;
 using Exception;
 using Exception.Account;
 
-namespace application.UseCases
+namespace application.UseCases.UsersUseCase
 {
     public class LoginUseCase
     {
