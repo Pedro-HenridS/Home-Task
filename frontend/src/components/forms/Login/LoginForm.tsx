@@ -3,10 +3,13 @@ import type { ILoginFormData } from '../../../interfaces/Requests/ILoginFormData
 import './LoginForm.scss';
 import axios from 'axios';
 import type { IFormHandle } from '../../../interfaces/IFormHandle';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const LoginForm = forwardRef<IFormHandle>((_props, ref) =>{
+
+    const navigate = useNavigate()
 
     // Use state dos inputs
     const [formData, changeForm] = useState<ILoginFormData>({
@@ -36,10 +39,9 @@ const LoginForm = forwardRef<IFormHandle>((_props, ref) =>{
 
             axios.defaults.withCredentials = true;
 
-            const response = await axios.post("http://localhost:5044/account/login", formData, {
-                headers: { "Content-Type": "application/json" },
-                
-            })
+            await axios.post("http://localhost:5044/account/login", formData, { withCredentials: true })
+
+            navigate("/home")
 
         }catch(err){
             console.log("Erro ao enviar a requisição: " + err)

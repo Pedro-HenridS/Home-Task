@@ -4,6 +4,7 @@ import './App.css'
 // Components
 import RegisterUserPage from "./pages/RegisterPage/RegisterUserPage"
 import LoginPage from './pages/LoginPage/LoginPage';
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
      <Routes>
       <Route path="/account/register" Component={RegisterUserPage}/>
       <Route path="/account/login" Component={LoginPage} />
+      <Route path="/home" Component={HomePage}/>
      </Routes> 
     </>
   )
