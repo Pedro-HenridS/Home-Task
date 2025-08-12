@@ -13,6 +13,7 @@ using infra;
 using infra.Services.Encrypt;
 using infra.Services.FriendsRepo;
 using infra.Services.Users;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -30,6 +31,34 @@ builder.Services.AddCors(options =>
             .AllowCredentials();
     });
 });
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)),
+        ClockSkew = TimeSpan.Zero
+    };
+
+    options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            var tokenFromCookie = context.Request.Cookies["token"];
+            if (!string.IsNullOrEmpty(tokenFromCookie))
+            {
+                context.Token = tokenFromCookie;
+            }
+            return Task.CompletedTask;
+        }
+    };
+});
+
 
 builder.Configuration.AddUserSecrets<Program>(optional: true);
 

@@ -31,16 +31,16 @@ const LoginForm = forwardRef<IFormHandle>((_props, ref) =>{
 
         console.log('Dados a serem enviados:', formData)
 
+        
         try{
+
+            axios.defaults.withCredentials = true;
+
             const response = await axios.post("http://localhost:5044/account/login", formData, {
                 headers: { "Content-Type": "application/json" },
                 
             })
-            //alert("Formulários enviados: " + formData)
 
-            const token = response.data.token;
-
-            console.log("Token recebido:", token)
         }catch(err){
             console.log("Erro ao enviar a requisição: " + err)
         }

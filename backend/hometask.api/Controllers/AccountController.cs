@@ -42,7 +42,17 @@ namespace hometask.api.Controllers
         {
             string token = await _loginUseCase.Login(request);
 
-            return Ok(new { token });
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = false,
+                SameSite = SameSiteMode.Strict,
+                Expires = DateTime.UtcNow.AddHours(2)
+            };
+
+            Response.Cookies.Append("token", token, cookieOptions);
+
+            return Ok();
         }
 
         [HttpDelete]
