@@ -1,9 +1,9 @@
 <!-- Imagem de capa -->
+
+<h1 align="center">🏠 HomeTask</h1>
 <p align="center">
   <img src="https://github.com/Pedro-HenridS/Home-Task/blob/main/Mockup%20tela%20de%20login.png" alt="HomeTask Banner" width="800">
 </p>
-
-<h1 align="center">🏠 HomeTask</h1>
 <p align="center">
   Um aplicativo simples e eficiente para gerenciamento de tarefas domésticas.
 </p>
