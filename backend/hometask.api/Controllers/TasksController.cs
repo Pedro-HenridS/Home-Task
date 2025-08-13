@@ -1,4 +1,5 @@
 ﻿
+using System.Security.Claims;
 using application.UseCases.TasksUseCase;
 using communication.Requests.DTO.TasksDto;
 using Microsoft.AspNetCore.Authorization;
@@ -10,23 +11,30 @@ namespace hometask.api.Controllers
     [ApiController]
     public class TasksController : ControllerBase
     {
-        AddTaskUseCase _addTaskUseCase;
+        private AddTaskUseCase _addTaskUseCase;
+        private AllTasksUseCase _allTasksUseCase;
         public TasksController(
-         AddTaskUseCase addTaskUseCase
-        ) 
+         AddTaskUseCase addTaskUseCase,
+         AllTasksUseCase allTasksUseCase
+        )
         {
             _addTaskUseCase = addTaskUseCase;
+            _allTasksUseCase = allTasksUseCase;
         }
 
         [Authorize]
         [HttpGet]
-        public IActionResult Home()
+        [Route("/all")]
+        public async Task<IActionResult> GetTasks()
         {
-            var message = "Testando batata";
-            return Ok( new { message });
+            Guid userId = new Guid(User.FindFirst(ClaimTypes.NameIdentifier)?.Value!);
+
+            var response = await _allTasksUseCase.GetAllTasksById(userId);
+
+            return Ok(response);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddTask([FromBody] CreateTaskDTO request)
         {

@@ -171,4 +171,7 @@
   <data name="GROUP_NOT_FOUND" xml:space="preserve">
     <value>O grupo não encontrado</value>
   </data>
+  <data name="NO_TASK_FOUND" xml:space="preserve">
+  <value>Nenhuma tarefa encontrada</value>
+</data>
 </root>

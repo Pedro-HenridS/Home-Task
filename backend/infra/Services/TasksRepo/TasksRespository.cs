@@ -22,6 +22,7 @@ namespace infra.Services.TasksRepo
         {
             List<Tasks> result = await _context.User_Task
                 .Where(ut => ut.UserId == userId)
+                .Include(ut => ut.Task)  
                 .Select(ut => ut.Task)
                 .ToListAsync();
 

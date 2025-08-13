@@ -1,5 +1,6 @@
 ﻿using application.Interfaces;
-using domain.Entities;
+using communication.Interfaces.TasksDto;
+using Exception;
 
 namespace application.UseCases.TasksUseCase
 {
@@ -9,14 +10,55 @@ namespace application.UseCases.TasksUseCase
 
         public AllTasksUseCase(
             IGetAllTasks getAllTasks
-        ) 
+        )
         {
             _getAllTasks = getAllTasks;
         }
 
-        public async Task<List<Tasks>> GetAllTasksById(Guid id)
+        public async Task<TasksListResponse> GetAllTasksById(Guid id)
         {
-            return await _getAllTasks.GetByUserId(id);
+            var tasks = await _getAllTasks.GetByUserId(id);
+            List<Tasks> tasks_list = [];
+
+            foreach (var t in tasks)
+            {
+                Tasks item = new()
+                {
+                    Id = t.Id,
+                    Name = t.Name,
+                    Description = t.Description,
+                    Due = t.Due,
+                    Group_Id = t.Group_Id,
+                    Status = (communication.Enums.StatusEnum)t.Status
+                };
+
+                tasks_list.Add(item);
+            }
+
+            if (tasks == null)
+            {
+                TasksListResponse response = new()
+                {
+                    Sucess = false,
+                    Data = null,
+                    Message = "",
+                    Errors = []
+                };
+
+                return response;
+            }
+            else
+            {
+                TasksListResponse response = new()
+                {
+                    Sucess = true,
+                    Data = tasks_list,
+                    Message = "",
+                    Errors = []
+                };
+                return response;
+            }
+
         }
     }
 }
