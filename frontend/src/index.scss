@@ -1,5 +1,9 @@
 @use './styles/variables' as v;
 
+body{
+  margin: 0;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -8,6 +12,7 @@
   color-scheme: light dark;
   color: v.$purple-60;
   background-color: v.$snow-white;
+  overflow: hidden;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,12 +28,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  
+
   ::placeholder{
     color: black;
   }
 
   ::-webkit-input-placeholder {
-    color: rgba(83, 79, 79, 0.486);
+    color: rgba(0, 0, 0, 0.486);
     padding-left: 1rem;
   }
 
@@ -74,10 +81,10 @@ button:focus-visible {
 
 input{
   background-color: v.$placeholder-purple;
-  border-radius: 20px;
+  border-radius: 0.9rem;
   border: none;
-  height: 3.3rem;
-  width: 21rem;
+  height: 2.5rem;
+  width: 17rem;
   padding-left: 1rem;
   color: black;
 
