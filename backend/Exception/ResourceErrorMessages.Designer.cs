@@ -115,6 +115,15 @@ namespace Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Group not found.
+        /// </summary>
+        public static string GROUP_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("GROUP_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The field has less than 8 digits.
         /// </summary>
         public static string LESS_THAN_8_CHAR {

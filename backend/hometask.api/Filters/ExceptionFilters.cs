@@ -15,12 +15,12 @@ namespace hometask.api.Filters
             {
                 HandleException(context);
             }
-            /*
+            
             else
             {
                 UnknowException(context);
             }
-            */
+            
         }
 
         private void HandleException(ExceptionContext context)
@@ -51,6 +51,14 @@ namespace hometask.api.Filters
             if (context.Exception is AddFriendException AddFriendException)
             {
                 var errors = AddFriendException.Errors;
+
+                context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+                context.Result = new ObjectResult(errors);
+            }
+
+            if (context.Exception is AddTasksException AddTasksException)
+            {
+                var errors = AddTasksException.Errors;
 
                 context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
                 context.Result = new ObjectResult(errors);

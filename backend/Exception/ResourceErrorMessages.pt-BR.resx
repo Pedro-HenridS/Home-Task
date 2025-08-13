@@ -168,4 +168,7 @@
   <data name="ALREADY_FRIENDS" xml:space="preserve">
     <value>O usuário já é seu amigo</value>
   </data>
+  <data name="GROUP_NOT_FOUND" xml:space="preserve">
+    <value>O grupo não encontrado</value>
+  </data>
 </root>

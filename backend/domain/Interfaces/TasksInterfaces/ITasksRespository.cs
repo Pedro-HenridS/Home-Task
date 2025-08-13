@@ -7,6 +7,7 @@ namespace domain.Interfaces.TasksInterfaces
         // public Task<List<Tasks>> GetTasksByGroup(Guid groupId);
         public Task<List<Tasks>> GetTasksByUser(Guid UserId);
 
-        public Task AddTaskWithuser();
+        public Task AddTask(Tasks task);
+        public Task<Tasks> GetTask(Guid TaskId);
     }
 }

@@ -28,8 +28,15 @@ namespace infra.Services.TasksRepo
             return result;
         }
 
-        public async Task AddTaskWithuser()
+        public async Task AddTask(Tasks task)
         {
+            await _context.Tasks.AddAsync(task);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<Tasks> GetTask(Guid TaskId)
+        {
+            return await _context.Tasks.Where(t => t.Id == TaskId).FirstOrDefaultAsync();
 
         }
     }
