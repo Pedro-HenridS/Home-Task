@@ -1,0 +1,10 @@
+@use '../../../styles/variables.scss' as v;
+
+.nav{
+    position: absolute;
+    top: 0;
+    height: 3rem;
+    width: 100vw;
+    box-shadow: v.$shadow-1;
+    
+}

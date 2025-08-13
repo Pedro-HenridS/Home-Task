@@ -16,10 +16,12 @@ export default function LoginPage(){
                 <LoginForm ref={formRef}></LoginForm>
                 <button onClick={() =>  formRef.current?.submitForm() }>Entrar</button>
                 </div>
-                
             </main>
             <aside className="aside">
-                <img className="image" src={brandingImg} alt="Branding" />
+                <div className='container'>
+                    <img className="image" src={brandingImg} alt="Branding"/>
+                    <text className="text" id="">A new idea of <br/> organization.</text>
+                </div>
             </aside>
         </div> 
     )
