@@ -1,3 +1,23 @@
-ul {
-    color: black;
+.tasks-body {
+
+    margin-top: 10rem;
+
+    ul {
+        color: black;
+        list-style: none;        
+
+        li{
+            margin-top: 0.5rem;
+        }
+    }
+
+    .groups{
+        display: flex;
+        margin-left: -1rem;
+        .group-card{
+            margin-left: 1rem;
+        }
+    }
+
+
 }

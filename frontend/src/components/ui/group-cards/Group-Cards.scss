@@ -1,17 +1,16 @@
 @use '../../../styles/variables.scss' as v;
 
 
-.card-container{
+.card-group{
     background-color: v.$white;
     display: flex;
     align-items: center;
     justify-content:space-between;
 
-    padding: 0.6rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 2rem;
     border-radius: 1rem;
-    max-width: 30rem;
+    width: 2rem;
+    height: 2rem;
 
     box-shadow: v.$shadow-2;
 }
