@@ -1,8 +1,8 @@
-export interface Task {
-  Id: string;
-  Name: string;
-  Description: string;
-  Due: string; 
-  Group_Id: string;
-  Status: number;
+export interface ITask {
+  id: string;
+  name: string;
+  description: string;
+  due: string; 
+  group_Id: string;
+  status: number;
 }

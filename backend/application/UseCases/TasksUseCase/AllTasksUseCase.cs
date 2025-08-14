@@ -18,22 +18,8 @@ namespace application.UseCases.TasksUseCase
         public async Task<TasksListResponse> GetAllTasksById(Guid id)
         {
             var tasks = await _getAllTasks.GetByUserId(id);
+
             List<Tasks> tasks_list = [];
-
-            foreach (var t in tasks)
-            {
-                Tasks item = new()
-                {
-                    Id = t.Id,
-                    Name = t.Name,
-                    Description = t.Description,
-                    Due = t.Due,
-                    Group_Id = t.Group_Id,
-                    Status = (communication.Enums.StatusEnum)t.Status
-                };
-
-                tasks_list.Add(item);
-            }
 
             if (tasks == null)
             {
@@ -47,8 +33,25 @@ namespace application.UseCases.TasksUseCase
 
                 return response;
             }
+
+
+
             else
             {
+                foreach (var t in tasks)
+                {
+                    Tasks item = new()
+                    {
+                        Id = t.Id,
+                        Name = t.Name,
+                        Description = t.Description,
+                        Due = t.Due,
+                        Group_Id = t.Group_Id,
+                        Status = (communication.Enums.StatusEnum)t.Status
+                    };
+
+                    tasks_list.Add(item);
+                }
                 TasksListResponse response = new()
                 {
                     Sucess = true,

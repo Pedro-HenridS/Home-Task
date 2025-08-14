@@ -1,17 +1,18 @@
 import "./HomePage.scss";
 import NavBar from "../../components/common/nav/NavBar";
-import { useEffect, useState } from "react";
+import { useEffect,  useState } from "react";
 import axios from "axios";
-import type { Task } from "../../interfaces/Responses/Tasks";
+import type { ITask } from "../../interfaces/Responses/Tasks";
 
 export default function HomePage() {
-    const [tasks, setTasks] = useState<Task[]>([]);
+    const [tasks, setTasks] = useState<ITask[]>([]);
 
     useEffect(() => {
+        
         const fetchTasks = async () => {
             try {
                 const response = await axios.get("http://localhost:5044/all", { withCredentials: true });
-                setTasks(response.data.Data ?? []);
+                setTasks(response.data.data)
 
             } catch (error) {
                 console.error("Erro ao buscar tasks:", error);
@@ -20,7 +21,6 @@ export default function HomePage() {
 
         fetchTasks();
 
-        console.log(tasks)
     }, []);
 
 
@@ -29,8 +29,8 @@ export default function HomePage() {
         <div>
             <NavBar />
             <ul>
-                {Array.isArray(tasks) && tasks.map(task => (
-                    <li key={task.Id}>{task.Name}</li>
+                {tasks.map(task => (
+                    <li key={task.id}>{task.name}</li>
                 ))}
             </ul>
         </div>
