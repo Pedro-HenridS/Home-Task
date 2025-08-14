@@ -1,23 +1,19 @@
+@use '../../styles/variables.scss' as v;
+
 .tasks-body {
 
     margin-top: 10rem;
 
-    ul {
-        color: black;
-        list-style: none;        
 
-        li{
-            margin-top: 0.5rem;
-        }
-    }
-
-    .groups{
+    .groups {
         display: flex;
+        list-style: none;
         margin-left: -1rem;
+        color: v.$black-text;
+
         .group-card{
             margin-left: 1rem;
         }
     }
-
 
 }

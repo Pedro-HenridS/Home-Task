@@ -31,7 +31,7 @@ body{
   
 
   ::placeholder{
-    color: black;
+    color: v.$black-text;
   }
 
   ::-webkit-input-placeholder {
@@ -86,7 +86,7 @@ input{
   height: 2.5rem;
   width: 17rem;
   padding-left: 1rem;
-  color: black;
+  color: v.$black-text;
 
 }
 
