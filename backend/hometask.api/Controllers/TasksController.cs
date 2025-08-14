@@ -36,11 +36,12 @@ namespace hometask.api.Controllers
 
         [Authorize]
         [HttpPost]
+        [Route("/create-task")]
         public async Task<IActionResult> AddTask([FromBody] CreateTaskDTO request)
         {
             await _addTaskUseCase.AddTask(request);
 
-            
+
 
             return Ok("");
         }
